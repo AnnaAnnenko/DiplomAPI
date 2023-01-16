@@ -1,4 +1,4 @@
-# <img width="5%" title="Jenkins" src="images/logo/Wikipedia.svg"> Проект автоматизации тестирования мобильного приложения Wikipedia
+# Проект автоматизации тестирования API на платформе [regres.in](https://reqres.in/)
 
 ##	Содержание
 
@@ -51,21 +51,21 @@ gradle clean test
 -Denvironment=local
 ```
 
-## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/15_Wiki_mobileAutotestsDiplomProject_Abramova/)
+## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/15_%20RegresIn_APIAutotestsProject_Abramova/)
 
 Для запуска сборки необходимо нажать кнопку <code><strong>*Собрать сейчас*</strong></code>.
 
 <p align="center">
-  <img src="images/screen/Jenkins.png" alt="Jenkins" width="800">
+  <img src="images/screen/JenkinsApi.png" alt="Jenkins" width="800">
 </p>
 
 После выполнения сборки, в блоке <code><strong>*История сборок*</strong></code> напротив номера сборки появится
 значок *Allure Report*, кликнув по которому, откроется страница со сформированным html-отчетом.
 
-## <img width="4%" title="Allure Report" src="images/logo/Allure.svg"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/15_Wiki_mobileAutotestsDiplomProject_Abramova/3/allure/)
+## <img width="4%" title="Allure Report" src="images/logo/Allure.svg"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/15_%20RegresIn_APIAutotestsProject_Abramova/allure/)
 
 <p align="center">
-  <img src="images/screen/AllureReport.png" alt="allure-report1" width="900">
+  <img src="images/screen/AllureApi.png" alt="allure-report1" width="900">
 </p>
 
 
@@ -87,17 +87,7 @@ gradle clean test
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне тестов.
 
 <p align="center">
-<img title="Telegram Notifications" src="images/screen/TelegramNotification.png">
-
-## <img width="4%" title="Selenoid" src="images/logo/Browserstack.svg"> Пример запуска теста в Browserstack
-
-К каждому тесту в отчете прилагается видео.
-
-На данном видео выполняется:
-
-- Проверка изменения языка результатов поиска при смене языка
+<img title="Telegram Notifications" src="images/screen/TelegramApi.png">
 
 
-<p align="center">
-  <img title="Browserstack Video" src="images/video/VideoTest.gif">
 </p>
