@@ -9,7 +9,6 @@
 - [Отчет о результатах тестирования в Allure Report](#-отчет-о-результатах-тестирования-в-Allure-report)
 - [Интеграция с Allure TestOps](#-интеграция-с-allure-testops)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
-- [Пример запуска теста в Browserstack](#-пример-запуска-теста-в-Browserstack)
 
 
 ## :technologist: Технологии и инструменты
@@ -19,9 +18,7 @@
 <code><img width="5%" title="Java" src="images/logo/Java.svg"></code>
 <code><img width="5%" title="Gradle" src="images/logo/Gradle.svg"></code>
 <code><img width="5%" title="Junit5" src="images/logo/Junit5.svg"></code>
-<code><img width="5%" title="AndroidStudio" src="images/logo/Android-studio.svg"></code>
 <code><img width="5%" title="Appium" src="images/logo/Appium.svg"></code>
-<code><img width="5%" title="Browserstack" src="images/logo/Browserstack.svg"></code>
 <code><img width="5%" title="Allure Report" src="images/logo/Allure.svg"></code>
 <code><img width="5%" title="Allure TestOps" src="images/logo/Allure_TO.svg"></code>
 <code><img width="5%" title="Jenkins" src="images/logo/Jenkins.svg"></code>
@@ -31,9 +28,13 @@
 
 ## :bookmark_tabs: Реализованные проверки:
 
-- Поиск в приложении: при введении значений в окно поиска есть список с результатами
-- Поиск в приложении: результат соответствует введенным значениям
-- Смена языка в момент поиска: результаты верно меняют локализацию
+- Создание пользователя
+- Удаление пользователя
+- Обновление данных пользователя
+- Проверка суммарного количества пользователей
+- Проверка, что конкретные пользователи добавлены в систему
+- Проверка ответа 404, если пользователь не найден
+- Проверка получения сообщения об ошибке при некорректном логине
 
 ## :computer: Запуск тестов из терминала
 
@@ -41,14 +42,6 @@
 
 ```bash
 gradle clean test 
--Denvironment=browserstack
-```
-
-### Локальный запуск тестов
-
-```bash
-gradle clean test
--Denvironment=local
 ```
 
 ## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/15_%20RegresIn_APIAutotestsProject_Abramova/)
@@ -56,38 +49,48 @@ gradle clean test
 Для запуска сборки необходимо нажать кнопку <code><strong>*Собрать сейчас*</strong></code>.
 
 <p align="center">
-  <img src="images/screen/JenkinsApi.png" alt="Jenkins" width="800">
+  <img src="images/screen/JenkinsAPI1.png" alt="Jenkins" width="800">
 </p>
 
-После выполнения сборки, в блоке <code><strong>*История сборок*</strong></code> напротив номера сборки появится
-значок *Allure Report*, кликнув по которому, откроется страница со сформированным html-отчетом.
+После выполнения сборки, в блоке <code><strong>*История сборок*</strong></code> напротив номера сборки отобразятся
+иконки *Allure Report* и *Allure TestOPS*, кликнуе по клику открывают страницы соответствующих отчетов.
 
-## <img width="4%" title="Allure Report" src="images/logo/Allure.svg"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/15_%20RegresIn_APIAutotestsProject_Abramova/allure/)
+<p align="center">
+  <img src="images/screen/jENKINSapi2.png" alt="Jenkins" width="800">
+</p>
+
+## <img width="4%" title="Allure Report" src="images/logo/Allure.svg"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/15_%20RegresIn_APIAutotestsProject_Abramova/3/allure/)
 
 <p align="center">
   <img src="images/screen/AllureApi.png" alt="allure-report1" width="900">
 </p>
 
 
-## <img width="4%" title="Allure TestOPS" src="images/logo/Allure_TO.svg"> Интеграция с [Allure TestOps](https://allure.autotests.cloud/launch/18294)
+## <img width="4%" title="Allure TestOPS" src="images/logo/Allure_TO.svg"> Интеграция с [Allure TestOps](https://allure.autotests.cloud/launch/18491)
 
 ### Основной дашборд
 
 <p align="center">
-  <img src="images/screenshot/dashboard.png" alt="dashboard" width="900">
+  <img src="images/screen/testopsAPI2.png" alt="dashboard" width="900">
 </p>
 
 ### Список тестов с результатами прогона
 
 <p align="center">
-  <img src="images/screenshot/tree.png" alt="dashboard" width="900">
+  <img src="images/screen/testopsAPI3.png" alt="dashboard" width="900">
+</p>
+
+### Список тест-кейсов, сформированных в результате прогона
+
+<p align="center">
+  <img src="images/screen/allureAPI4.png" alt="dashboard" width="900">
 </p>
 
 ## <img width="4%" title="Telegram" src="images/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
 После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне тестов.
 
 <p align="center">
-<img title="Telegram Notifications" src="images/screen/TelegramApi.png">
+<img title="Telegram Notifications" src="images/screen/telegramAPI2.png">
 
 
 </p>
