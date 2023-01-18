@@ -6,5 +6,6 @@ import org.aeonbits.owner.Config;
 public interface ApiConfig extends Config {
 
     @Config.Key("baseUrl")
+    @DefaultValue("https://reqres.in")
     String baseUrl();
 }
