@@ -10,43 +10,42 @@ import static qa.annenko.specs.CommonRequestSpec.commonRequestSpec;
 import static qa.annenko.specs.CreateUserRequestSpec.createUserRequestSpec;
 import static qa.annenko.specs.CreateUserResponseSpec.createUserResponseSpec;
 import static qa.annenko.specs.DeleteUserResponseSpec.deleteUserResponseSpec;
-import static qa.annenko.specs.ListOfUserResponseSpec.listOfUserResponseSpec;
 import static qa.annenko.specs.SingleUserNotFoundResponseSpec.singleUserNotFoundResponseSpec;
 import static qa.annenko.specs.UnsuccessfulLoginRequestSpec.unsuccessfulLoginRequestSpec;
 import static qa.annenko.specs.UnsuccessfulLoginResponseSpec.unsuccessfulLoginResponseSpec;
 import static qa.annenko.specs.UpdateUserResponseSpec.updateUserResponseSpec;
+import static qa.annenko.specs.UserListResponseSpec.userListResponseSpec;
 
-public class ActionsWithUserTests {
+public class UserActionsTests {
 
     @Test
-    public void totalOfGetListOfUserTest() {
-        ResponseListOfUser response = given()
+    public void totalUserListTest() {
+        ResponseUserList response = given()
                 .spec(commonRequestSpec)
                 .when()
-                .get("?page=2")
+                .get("/?page=2")
                 .then()
-                .spec(listOfUserResponseSpec)
-                .extract().as(ResponseListOfUser.class);
+                .spec(userListResponseSpec)
+                .extract().as(ResponseUserList.class);
         assertEquals(response.getTotal(), 12);
     }
 
     @Test
-    public void itemsOfGetListOfUserTest() {
-        ResponseListOfUser response = given()
+    public void itemsUserListTest() {
+        ResponseUserList response = given()
                 .spec(commonRequestSpec)
                 .when()
-                .get("?page=2")
+                .get("/?page=2")
                 .then()
-                .spec(listOfUserResponseSpec)
-                .extract().as(ResponseListOfUser.class);
-        assertThat(response.getData().get(0).getLast_name().equals("Lawson"));
-        assertThat(response.getData().get(1).getLast_name().equals("Ferguson"));
-        assertThat(response.getData().get(2).getLast_name().equals("Funke"));
+                .spec(userListResponseSpec)
+                .extract().as(ResponseUserList.class);
+        assertThat(response.getData().get(0).getLastName().equals("Lawson"));
+        assertThat(response.getData().get(1).getLastName().equals("Ferguson"));
+        assertThat(response.getData().get(2).getLastName().equals("Funke"));
     }
 
     @Test
     public void singleUserNotFoundTest() {
-
         given()
                 .spec(commonRequestSpec)
                 .when()
@@ -57,7 +56,6 @@ public class ActionsWithUserTests {
 
     @Test
     public void createUserTest() {
-
         RequestCreateUser bodyRequest = new RequestCreateUser();
         bodyRequest.setName("morpheus");
         bodyRequest.setJob("leader");
@@ -66,7 +64,7 @@ public class ActionsWithUserTests {
                 .spec(createUserRequestSpec)
                 .body(bodyRequest)
                 .when()
-                .post("https://reqres.in/api/users")
+                .post("/users")
                 .then()
                 .spec(createUserResponseSpec)
                 .extract().as(ResponseCreateUser.class);
@@ -76,7 +74,6 @@ public class ActionsWithUserTests {
 
     @Test
     public void updateUserTest() {
-
         RequestCreateUser bodyRequest = new RequestCreateUser();
         bodyRequest.setName("morpheus");
         bodyRequest.setJob("zion resident");
@@ -95,7 +92,6 @@ public class ActionsWithUserTests {
 
     @Test
     public void deleteUserTest() {
-
         given()
                 .spec(commonRequestSpec)
                 .when()
@@ -106,7 +102,6 @@ public class ActionsWithUserTests {
 
     @Test
     public void unSuccessfulLoginTest() {
-
         RequestUnsuccessfulLogin bodyRequest = new RequestUnsuccessfulLogin();
         bodyRequest.setEmail("peter@klaven");
 
